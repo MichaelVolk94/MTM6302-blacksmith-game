@@ -6,12 +6,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Blacksmith</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-  <h1>Blacksmith</h1>
-  <p>Blacksmith is a simple text-based game, played entirely in the console.</p>
+  <div class="game-container">
+  <h1>Blacksmith Game</h1>
+  <pre id="output"></pre>
+  <input type="text" id="commandInput" placeholder="Enter your command...">
+  <button onclick="executeCommand()">Submit</button>
   <script src="blacksmith.js"></script>
+</div>
 </body>
 
 </html>
