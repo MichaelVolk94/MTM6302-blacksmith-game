@@ -51,12 +51,12 @@ console.log('You bought 1 wood')
  */
 function make(item){
   const recipies = { sword: { ore: 2, wood: 1 }, axe: { ore: 1, wood: 2 } }
-  if (item === 'sword') {
+  if (item === 'ore' && wood >= 2) {
     ore = ore - 2
-    wood = wood -1
+    wood = wood - 1
     console.log('You have made 1 sword')
   }
-  if (item ==='axe') {
+  if (item === 'wood') {
     ore = ore - 1
     wood = wood - 2
     console.log('You have made 1 axe')
