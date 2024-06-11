@@ -86,7 +86,8 @@ function sell(item){
  * inventory
  * Shows the players current inventory
  */
-function inventory (){
+
+function displayInventory(){
   console.log('Current Inventory: Gold: X, Ore: X, Wood: X, Swords: X, Axes: X')
   return `Inventory:
   Gold: ${inventory.gold}
