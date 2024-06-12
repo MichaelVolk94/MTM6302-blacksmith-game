@@ -157,6 +157,8 @@ function executeCommand() {
       default:
       output = "Invalid command. Type 'help' for instructions.";
   }
+  outputElement.textContent = output;
+  commandInput.value = "";
 }
 
 /**
