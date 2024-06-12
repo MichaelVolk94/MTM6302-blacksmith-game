@@ -21,7 +21,7 @@ const wood = 3
  *    The fire must be going
  */
 function fire () {
-  if (fireStatus === false && wood > 0){
+  if (fireStatus === true && wood > 0){
     fireStatus = true
     wood = wood - 1
     console.log('You have started a fire.')
@@ -102,6 +102,8 @@ function sell(item){
   if (item === 'axe') {
     gold = gold + 4
     console.log('You have now sold 1 axe')
+  } else {
+    return "Invalid item.";
   }
 }
 
@@ -152,7 +154,7 @@ function executeCommand() {
     case "help":
       output = help();
       break;
-    default:
+      default:
       output = "Invalid command. Type 'help' for instructions.";
   }
 }
