@@ -1,3 +1,10 @@
+{
+  let gold = 10;
+let ore = 2;
+let wood = 4;
+let fireLit = false;
+let inventory = { sword: 4, axe: 4 };
+}
 // Variables
 const fireStatus = false;
 const wood = 3
@@ -39,6 +46,7 @@ function buy(item){
     console.log('You bought 1 ore')
   }
   if  (item === 'wood'){
+    fireStatus = false
 wood = wood + 1
 gold = gold - 1
 console.log('You bought 1 wood')
@@ -52,14 +60,30 @@ console.log('You bought 1 wood')
 function make(item){
   const recipies = { sword: { ore: 2, wood: 1 }, axe: { ore: 1, wood: 2 } }
   if (item === 'ore' && wood >= 2) {
+    fireStatus = true
     ore = ore - 2
     wood = wood - 1
     console.log('You have made 1 sword')
   }
   if (item === 'wood') {
+    fireStatus = true
     ore = ore - 1
     wood = wood - 2
     console.log('You have made 1 axe')
+  }
+  if (recipes.hasOwnProperty(item)) {
+    const recipe = recipes[item];
+    const requiredOre = recipe.ore;
+    const requiredWood = recipe.wood;
+
+    if (ore >= requiredOre && wood >= requiredWood && fireLit) {
+      ore -= requiredOre;
+      wood -= requiredWood;
+      inventory[item]++;
+      return `You made a ${item}. You now have ${inventory[item]} ${item}s.`;
+    } else {
+      return `You don't have enough resources or the fire is not lit to make a ${item}.`;
+    }
   }
   else {
     return "Invalid item.";
