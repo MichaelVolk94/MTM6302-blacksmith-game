@@ -1,13 +1,14 @@
-{
+
   let gold = 10;
 let ore = 2;
 let wood = 4;
 let fireLit = false;
-let inventory = { sword: 4, axe: 4 };
-}
+let sword= 4 
+let axe= 4
+
 // Variables
-const fireStatus = false;
-const wood = 3
+let fireStatus = false;
+// let wood = 3
 
 
 // Functions
@@ -22,13 +23,13 @@ const wood = 3
  */
 function fire () {
   if (fireStatus === true && wood > 0){
-    fireStatus = true
+    fireStatus = false
     wood = wood - 1
     console.log('You have started a fire.')
   }
-  else if (fireStatus === true) {
+  else if (fireStatus === false) {
     console.log('You have put out the fire')
-    fireStatus = false
+    fireStatus = true
   }
   else {
     console.log('You do not have enough wood to start a fire')
@@ -58,32 +59,15 @@ console.log('You bought 1 wood')
  * make
  */
 function make(item){
-  const recipies = { sword: { ore: 2, wood: 1 }, axe: { ore: 1, wood: 2 } }
-  if (item === 'ore' && wood >= 2) {
-    fireStatus = true
+  if (item === 'sword' && wood >= 2) {
     ore = ore - 2
     wood = wood - 1
     console.log('You have made 1 sword')
   }
-  if (item === 'wood') {
-    fireStatus = true
+  if (item === 'axe') {
     ore = ore - 1
     wood = wood - 2
     console.log('You have made 1 axe')
-  }
-  if (recipes.hasOwnProperty(item)) {
-    const recipe = recipes[item];
-    const requiredOre = recipe.ore;
-    const requiredWood = recipe.wood;
-
-    if (ore >= requiredOre && wood >= requiredWood && fireLit) {
-      ore -= requiredOre;
-      wood -= requiredWood;
-      inventory[item]++;
-      return `You made a ${item}. You now have ${inventory[item]} ${item}s.`;
-    } else {
-      return `You don't have enough resources or the fire is not lit to make a ${item}.`;
-    }
   }
   else {
     return "Invalid item.";
@@ -94,7 +78,6 @@ function make(item){
  * sell
  */
 function sell(item){
-  const prices = { sword: 5, axe: 4 };
   if (item === 'sword') {
     gold = gold + 5
     console.log('You have sold 1 sword')
@@ -116,14 +99,12 @@ function sell(item){
 function displayInventory(){
   console.log('Current Inventory: Gold: X, Ore: X, Wood: X, Swords: X, Axes: X')
   return `Inventory:
-  Gold: ${inventory.gold}
-  Ore: ${inventory.ore}
-  Wood: ${inventory.wood}
-  Swords: ${inventory.sword}
-  Axes: ${inventory.axe}`;
+  Gold: ${gold}
+  Ore: ${ore}
+  Wood: ${wood}
+  Swords: ${sword}
+  Axes: ${axe}`;
 }
-
-
 
 function executeCommand() {
   const commandInput = document.getElementById("commandInput");
